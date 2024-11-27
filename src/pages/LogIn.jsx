@@ -6,13 +6,13 @@ import { useNavigate } from 'react-router-dom';
 
 
 function LogIn() {
-    const { logIn } = useContext(AuthContext);
+    const authContext = useContext(AuthContext);
     const navigate = useNavigate();
   
     const handleLogin = () => {
         // Logic to verify credentials (e.g., API call)
+        authContext.logIn(); // Update the `isLogin` state to true
         navigate('/home');
-        logIn(); // Update the `isLogin` state to true
     };
   
     return (

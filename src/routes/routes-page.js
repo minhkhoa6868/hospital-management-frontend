@@ -2,7 +2,6 @@ import Dashboard from "../pages/Dashboard";
 import Patients from "../pages/Patients";
 import LogIn from "../pages/LogIn";
 
-
 const routes = [
     {
         path: '/',
