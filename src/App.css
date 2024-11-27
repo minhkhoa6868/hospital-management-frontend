@@ -1,5 +1,17 @@
-* {
+.App {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+.content {
+    margin: 0;
+    margin-left: 200px;
+    flex-grow: 1;
+    /* padding: 0 20px; */
+    overflow-y: auto;
+}
+
+body {
+    background-color: #f5f6fc;
 }
