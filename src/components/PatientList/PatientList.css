@@ -1,0 +1,79 @@
+.patient-list {
+    display:flexbox;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 30px;
+
+    width: 800px;
+
+    font-family: 'Poppins', sans-serif;
+
+    margin-inline: 20px;
+    margin-block: 20px;
+}
+/* @media screen and (max-width: 700px) {
+    .patient-list{width:100%;}
+} */
+
+.header {
+    margin: 0 12px;
+
+    font-weight: 600;
+    font-style: normal;
+}
+
+.subheader {
+    margin: 0 12px;
+
+    font-size: 12px;
+    font-weight: 400;
+    font-style: normal;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate; /* Use 'separate' to allow spacing between rows */
+    border-spacing: 0 6px; /* Add space between rows */
+    background: white;
+
+    margin: 0;
+    margin-top: 6px;
+
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+thead tr {
+    background-color: #f1f1f1;
+    text-align: left;
+}
+  
+th, td {
+    padding: 12px;
+    width:max-content;
+}
+
+th:first-child {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+th:last-child {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+td:first-child {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+td:last-child {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+  
+tbody tr:hover {
+    background-color: #f9f9f9;
+}
