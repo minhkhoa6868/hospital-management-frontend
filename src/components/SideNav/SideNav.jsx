@@ -1,11 +1,12 @@
 import "./SideNav.css";
 import Profile from "./Profile/Profile";
+import LogoCorner from '../LogoCorner/LogoCorner'
 
 import React, { useState } from "react";
 import Stack from "@mui/material/Stack";
 import { Outlet, Link, NavLink } from "react-router-dom";
 
-import EmergencyOutlinedIcon from "@mui/icons-material/EmergencyOutlined";
+
 import SpaceDashboardOutlinedIcon from "@mui/icons-material/SpaceDashboardOutlined";
 import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import MedicalInformationOutlinedIcon from "@mui/icons-material/MedicalInformationOutlined";
@@ -82,7 +83,7 @@ const Layout = () => {
   );
 };
 
-const SideNav = () => {
+export const SideNav = () => {
   const user = {
     name: "Nguyễn Hữu Trí",
     specialty: "Manager",
@@ -98,19 +99,8 @@ const SideNav = () => {
 
   return (
     <div className="sidebar">
-      <div className="logo">
-        <Stack
-          alignItems="center"
-          direction="row"
-          gap={1}
-          backgroundColor="transparent"
-        >
-          <EmergencyOutlinedIcon sx={{ fontSize: 28 }} />
-          Logo
-        </Stack>
-      </div>
-
-      <Layout />
+      <LogoCorner/>
+      <Layout/>
 
       <Profile user={user} />
     </div>
