@@ -1,6 +1,6 @@
 import Dashboard from "../pages/Dashboard";
-import Patients from "../pages/Patients";
-import LogIn from "../pages/LogIn";
+import Patients from "../pages/Patients/Patients";
+import LogIn from "../pages/Login/LogIn";
 
 const routes = [
     {
