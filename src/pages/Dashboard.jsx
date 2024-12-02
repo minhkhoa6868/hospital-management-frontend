@@ -1,11 +1,11 @@
 import Overview from "../components/Overview/Overview"
-import PatientList from "../components/PatientList/PatientList"
+import PatientOverview from "../components/PatientOverview/PatientOverview"
 
 const Dashboard = () => {
     return(
         <div className="content">
             <Overview/>
-            <PatientList/>
+            <PatientOverview/>
         </div>
     );
 }
