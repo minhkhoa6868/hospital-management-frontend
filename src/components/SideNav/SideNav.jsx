@@ -2,7 +2,7 @@ import "./SideNav.css";
 import Profile from "./Profile/Profile";
 import LogoCorner from '../LogoCorner/LogoCorner'
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Stack from "@mui/material/Stack";
 import { Outlet, Link, NavLink } from "react-router-dom";
 
@@ -12,23 +12,15 @@ import PermIdentityOutlinedIcon from "@mui/icons-material/PermIdentityOutlined";
 import MedicalInformationOutlinedIcon from "@mui/icons-material/MedicalInformationOutlined";
 import CorporateFareRoundedIcon from "@mui/icons-material/CorporateFareRounded";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
+import LogoutIcon from '@mui/icons-material/Logout';
+import { AuthContext } from "../../context/AuthContext";
 
 const Layout = () => {
+  const authContext = useContext(AuthContext);
+
   return (
     <>
       <nav>
-            <NavLink to="/home" className={({ isActive }) => (isActive ? "li active" : "li")}>
-              <Stack
-                alignItems="center"
-                direction="row"
-                gap={1}
-                backgroundColor="transparent"
-              >
-                <SpaceDashboardOutlinedIcon />
-                Dashboard
-              </Stack>
-            </NavLink>
-
             <NavLink to="/patients" className={({ isActive }) => (isActive ? "li active" : "li")}>
               <Stack
                 alignItems="center"
@@ -41,7 +33,7 @@ const Layout = () => {
               </Stack>
             </NavLink>
 
-            <NavLink to="/employee" className={({ isActive }) => (isActive ? "li active" : "li")}>
+            <NavLink to="/doctor" className={({ isActive }) => (isActive ? "li active" : "li")}>
               <Stack
                 alignItems="center"
                 direction="row"
@@ -49,7 +41,7 @@ const Layout = () => {
                 backgroundColor="transparent"
               >
                 <MedicalInformationOutlinedIcon />
-                Employee
+                Doctor
               </Stack>
             </NavLink>
 
@@ -65,15 +57,15 @@ const Layout = () => {
               </Stack>
             </NavLink>
 
-            <NavLink to="/about" className={({ isActive }) => (isActive ? "li active" : "li")}>
+            <NavLink to="/" className={({ isActive }) => (isActive ? "li active" : "li")} onClick={authContext.logOut} >
               <Stack
                 alignItems="center"
                 direction="row"
                 gap={1}
                 backgroundColor="transparent"
               >
-                <InfoOutlinedIcon />
-                About
+                <LogoutIcon />
+                Log Out
               </Stack>
             </NavLink>
       </nav>

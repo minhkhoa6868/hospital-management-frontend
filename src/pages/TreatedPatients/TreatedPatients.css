@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.patient-body {
+    padding: 20px;
+    align-items: center;
+    /* background-color: #f5f6fc; */
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+}
+
+.patient-header {
+    font-size: 40px;
+    font-weight: 600;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.patient-container {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+
+.back-button {
+    float:right;
+    margin-left: 10px;
+
+    background-color: #fff;
+    box-shadow: 2px 2px 40px #e7e2f5;
+    
+    border:none;
+    border-radius: 20px;
+
+    color:#6e4de7;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 16px;
+}
+
+.back-button:hover {
+    cursor:pointer;
+    box-shadow: 2px 2px 40px #dad2f3;
+}
