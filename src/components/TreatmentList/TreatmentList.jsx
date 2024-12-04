@@ -30,7 +30,6 @@ const TreatmentList = ( {treatments} ) => {
                     <th>Diagnosis</th>
                     <th>Start Date</th>
                     <th>End Date</th>
-                    <th>Doctor Code</th>
                     <th>Doctor Name</th>
                     <th>Fee</th>
                 </tr>
@@ -42,7 +41,6 @@ const TreatmentList = ( {treatments} ) => {
                         <td>{treatment.informationDiagnosis}</td>
                         <td>{treatment.startDate}</td>
                         <td>{treatment.endDate}</td>
-                        <td>{treatment.doctorCode}</td>
                         <td>{treatment.doctorName}</td>
                         <td>{formatCurrency(treatment.informationFee)}</td>
                     </tr>
