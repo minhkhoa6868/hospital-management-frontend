@@ -1,44 +1,97 @@
-import './PatientList.css';
+import { useNavigate } from "react-router-dom";
+import "./PatientList.css";
 
-const PatientList = () => {
-    const patients = [
-        { id: "#A-125011", name: "Jaydon Vetrovs",phoneNumber:"0123456789", checkIn: "20.03.2024", diagnose: "Ventricular"},
-        { id: "#A-125012", name: "Jakob Gouse",phoneNumber:"0123456789", checkIn: "20.03.2024", diagnose: "Maze surgery"},
-        { id: "#A-125013", name: "Kaylynn Geidt",phoneNumber:"0123456789", checkIn: "18.03.2024", diagnose: "Angioplasty" },
-        { id: "#A-125013", name: "Marilyn Culhane",phoneNumber:"0123456789", checkIn: "18.03.2024", diagnose: "Angioplasty"},
-    ];
-    return (
-        <div className="patient-list">
-            <div>
-                <div className="header">Patient List</div>
-                <div className='subheader'>Information about new patients</div>
-            </div>
+import React, { useState } from "react";
 
-            <table>
-                <thead>
-                    <tr>
-                        {/* <th></th> */}
-                        <th>Patient ID</th>
-                        <th>Full Name</th>
-                        <th>Phone Number</th>
-                        <th>Date Checked In</th>
-                        <th>Diagnosis</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {patients.map((patient, index) => (
-                        <tr key={index}>
-                            {/* <td><input type="checkbox" /></td> */}
-                            <td>{patient.id}</td>
-                            <td>{patient.name}</td>
-                            <td>{patient.phoneNumber}</td>
-                            <td>{patient.checkIn}</td>
-                            <td>{patient.diagnose}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+const PatientList = ({ patients }) => {
+  const [selectedPerson, setSelectedPerson] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const openModal = (person) => {
+    setSelectedPerson(person);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedPerson(null);
+    setIsModalOpen(false);
+  };
+
+  const openTreatmentList = (patientCode) => {
+    navigate(`/patients/${patientCode}/treatment`);
+  };
+
+  const openExaminationList = (patientCode) => {
+    navigate(`/patients/${patientCode}/examination`);
+  };
+
+  return (
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>Patient ID</th>
+            <th>Full Name</th>
+            <th>Dob</th>
+            <th>Sex</th>
+            <th>Phone Number</th>
+            <th>Medical Care</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {patients.map((patient) => (
+            <tr
+              key={patient.pcode}
+              onClick={() => openModal(patient)}
+              style={{ cursor: "pointer" }}
+            >
+              <td>{patient.pcode}</td>
+              <td>{patient.lastName + " " + patient.firstName}</td>
+              <td>{patient.dob}</td>
+              <td>{patient.gender}</td>
+              <td>{patient.phoneNumber}</td>
+              <td>
+                <button
+                  onClick={() => {
+                    patient.patientType == "Inpatient"
+                      ? openTreatmentList(patient.pcode)
+                      : openExaminationList(patient.pcode);
+                  }}
+                >
+                  {patient.patientType == "Inpatient"
+                    ? "Treatment"
+                    : "Examination"}
+                </button>
+              </td>
+              <td>{patient.patientType}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      {isModalOpen && (
+        <div>
+          {/* Overlay for dimmed background */}
+          <div className="overlay-styles"></div>
+
+          {/* Modal */}
+          <div className="modalContentStyles">
+            <h2>{selectedPerson.lastName + " " + selectedPerson.firstName}</h2>
+            <p>
+              <strong>ID:</strong> {selectedPerson.pcode}
+            </p>
+            <p>
+              <strong>PhoneNumber:</strong> {selectedPerson.phoneNumber}
+            </p>
+            <p>
+              <strong>Type:</strong> {selectedPerson.patientType}
+            </p>
+            <button onClick={closeModal}>Close</button>
+          </div>
         </div>
-    )
-}
+      )}
+    </div>
+  );
+};
 export default PatientList;

@@ -1,0 +1,35 @@
+.patient-list {
+    display:block;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 30px;
+
+    width: 97%;
+
+    font-family: 'Poppins', sans-serif;
+
+    margin-inline: 20px;
+    margin-block: 20px;
+}
+/* @media screen and (max-width: 700px) {
+    .patient-list{width:100%;}
+} */
+
+.header {
+    width:fit-content;
+    margin: 0 12px;
+
+    font-weight: 600;
+    font-style: normal;
+}
+
+.subheader {
+    width:fit-content;
+    margin: 0 12px 6px 12px;
+
+    font-size: 12px;
+    font-weight: 400;
+    font-style: normal;
+}
